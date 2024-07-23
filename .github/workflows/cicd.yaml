@@ -44,10 +44,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker images
-      run: docker-compose -f docker-compose.yml build
+      run: docker-compose -f docker-compose.yaml build
 
     - name: Start services
-      run: docker-compose -f docker-compose.yml up -d
+      run: docker-compose -f docker-compose.yaml up -d
 
     - name: Run backend tests
       run: docker-compose -f docker-compose.yaml exec node-express npm test
@@ -55,4 +55,4 @@ jobs:
     - name: Run frontend tests
       run: docker-compose -f docker-compose.yaml exec nextjs npm test
     - name: Stop and remove services
-      run: docker-compose -f docker-compose.yml down
+      run: docker-compose -f docker-compose.yaml down
